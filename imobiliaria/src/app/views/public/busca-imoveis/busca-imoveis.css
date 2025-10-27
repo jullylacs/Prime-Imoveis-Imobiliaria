@@ -1,7 +1,10 @@
 /* SEÇÃO HERO E DESTAQUE */
 .hero-section {
-  background-color: #f8fafc;
+  background: linear-gradient(180deg, #CCD0CF 0%, #9BA8AB 100%); /* Fundo mais claro e suave */
   padding: 3rem 1rem;
+  color: #06141B; /* Texto escuro para contraste */
+  backdrop-filter: blur(10px); /* Efeito embaçado */
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .featured-section .container {
@@ -18,12 +21,12 @@
 .title {
   font-size: 2rem;
   font-weight: bold;
-  color: #002d62;
+  color: #06141B; /* Azul petróleo escuro */
   margin-bottom: 0.5rem;
 }
 
 .subtitle {
-  color: #64748b;
+  color: #4A5C6A; /* Cinza azulado */
   font-size: 1rem;
 }
 
@@ -36,19 +39,23 @@
 
 /* CARD DE PROPRIEDADE */
 .propety-card {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.3); /* Fundo translúcido */
   border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(15px); /* Embaçado interno */
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .propety-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 /* IMAGEM DA PROPRIEDADE */
@@ -58,20 +65,21 @@
   object-fit: cover;
   border-radius: 0.75rem;
   margin-bottom: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
 /* TÍTULO DO IMÓVEL */
 .propety-card h3 {
   font-weight: bold;
   font-size: 1.25rem;
-  color: #002d62;
+  color: #06141B; /* Azul escuro */
   margin-bottom: 0.5rem;
 }
 
 /* INFORMAÇÕES DO IMÓVEL */
 .propety-card p {
   font-size: 0.9rem;
-  color: #64748b;
+  color: #253745; /* Azul grafite */
   margin: 0.25rem 0;
 }
 
@@ -79,17 +87,20 @@
 .propety-card .btn.outline {
   margin-top: auto;
   padding: 0.5rem 1rem;
-  border: 2px solid #2563eb;
-  background: none;
-  color: #2563eb;
+  border: 2px solid #4A5C6A; /* Cinza azulado */
+  background: rgba(255, 255, 255, 0.2);
+  color: #06141B; /* Texto escuro */
   border-radius: 0.5rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
   text-align: center;
   display: inline-block;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .propety-card .btn.outline:hover {
-  background-color: #f0f9ff;
+  background-color: #4A5C6A; /* Azul acinzentado sólido */
+  color: #CCD0CF; /* Texto claro no hover */
 }

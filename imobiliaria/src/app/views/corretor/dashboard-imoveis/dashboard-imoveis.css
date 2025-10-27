@@ -1,44 +1,90 @@
+
 .dashboard-page {
   min-height: 100vh;
-  background-color: #f8fafc;
+  background: linear-gradient(135deg, #E6EAEB, #F5F7F8);
+  font-family: "Poppins", sans-serif;
+  color: #06141B;
+  overflow-x: hidden;
 }
 
-/* HERO / HEADER */
+/* ===============================
+   HEADER / HERO DO DASHBOARD
+=============================== */
 .hero-section {
-  background-color: #f8fafc;
-  padding: 2rem 1rem;
-  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  padding: 5rem 1rem 3rem;
+  border-bottom: 1px solid rgba(155, 168, 171, 0.3);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(204, 208, 207, 0.7),
+    rgba(155, 168, 171, 0.3)
+  );
+  z-index: 0;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .dashboard-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #002d62;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #06141B;
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: rgba(74, 92, 106, 0.2);
+  border-radius: 3px;
 }
 
 .subtitle {
-  color: #64748b;
-  font-size: 1rem;
+  color: #4A5C6A;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
 }
 
-/* FORMULÁRIO DE CADASTRO */
+/* ===============================
+   FORMULÁRIO DE CADASTRO
+=============================== */
 .form-section {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(204, 208, 207, 0.5);
   border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
   padding: 2rem 1.5rem;
-  margin: 2rem 0;
+  margin: 3rem 0;
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
 }
 
 .form-section form {
@@ -48,156 +94,158 @@
 
 .form-section input[type="text"],
 .form-section textarea {
-  padding: 0.75rem 1rem;
+  padding: 0.9rem 1rem;
   margin-bottom: 1rem;
-  border: 2px solid #cbd5e1;
-  border-radius: 0.5rem;
+  border: 2px solid rgba(155, 168, 171, 0.4);
+  border-radius: 0.6rem;
   font-size: 1rem;
-  color: #334155;
-  font-family: inherit;
-  transition: border-color 0.3s;
+  color: #06141B;
+  background: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
   resize: vertical;
 }
 
 .form-section input[type="text"]:focus,
 .form-section textarea:focus {
   outline: none;
-  border-color: #2563eb;
-  background-color: #f0f9ff;
+  border-color: #253745;
+  background-color: rgba(240, 242, 243, 0.9);
 }
 
 .form-section textarea {
-  min-height: 100px;
+  min-height: 120px;
 }
 
-/* GRID DE PROPRIEDADES */
+/* ===============================
+   GRID DE PROPRIEDADES
+=============================== */
 .property-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
   margin-top: 2rem;
 }
 
 .property-card {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(204, 208, 207, 0.4);
   border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
   overflow: hidden;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  backdrop-filter: blur(10px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .property-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 
 .property-image {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 0.75rem;
+  border-radius: 0.8rem;
   margin-bottom: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .property-card h2 {
-  font-weight: bold;
-  font-size: 1.25rem;
-  color: #002d62;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #06141B;
   margin-bottom: 0.5rem;
 }
 
 .property-card p {
-  font-size: 0.9rem;
-  color: #64748b;
+  font-size: 0.95rem;
+  color: #4A5C6A;
   margin: 0.25rem 0;
 }
 
-/* FORMULÁRIO DE CADASTRO DE IMÓVEL */
-.mostrar-formulario {
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  padding: 2rem 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.mostrar-formulario form {
-  display: flex;
-  flex-direction: column;
-}
-
-.mostrar-formulario input[type="text"],
-.mostrar-formulario textarea {
-  padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
-  border: 2px solid #cbd5e1;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  color: #334155;
-  font-family: inherit;
-  transition: border-color 0.3s;
-  resize: vertical;
-}
-
-.mostrar-formulario input[type="text"]:focus,
-.mostrar-formulario textarea:focus {
-  outline: none;
-  border-color: #2563eb; 
-  background-color: #f0f9ff;
-}
-
-.mostrar-formulario textarea {
-  min-height: 100px;
-}
-
-/* BOTÕES */
+/* ===============================
+   BOTÕES
+=============================== */
 .btn {
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  font-weight: bold;
+  padding: 0.9rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
   cursor: pointer;
   border: none;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
 }
 
 .btn-primary {
-  background-color: #2563eb;
-  color: #fff;
+  background: linear-gradient(135deg, #253745, #4A5C6A);
+  color: #f0f2f3;
+  box-shadow: 0 4px 20px rgba(37, 55, 69, 0.3);
 }
 
 .btn-primary:hover {
-  background-color: #1e40af;
+  background: linear-gradient(135deg, #4A5C6A, #9BA8AB);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(37, 55, 69, 0.4);
 }
 
 .btn-success {
-  background-color: #16a34a;
-  color: #fff;
+  background: linear-gradient(135deg, #4A5C6A, #9BA8AB);
+  color: #06141B;
   margin: 5px;
+  box-shadow: 0 4px 15px rgba(74, 92, 106, 0.3);
 }
 
 .btn-success:hover {
-  background-color: #15803d;
+  background: linear-gradient(135deg, #9BA8AB, #E6EAEB);
+  transform: translateY(-3px);
 }
 
 .btn-outline {
   background: none;
-  border: 2px solid #2563eb;
-  color: #2563eb;
-  margin-top: auto;
-  margin: 2px;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  border: 2px solid #4A5C6A;
+  color: #253745;
+  padding: 0.7rem 1.3rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
   text-align: center;
   display: inline-block;
 }
 
 .btn-outline:hover {
-  background-color: #2563eb;
-  color: #ffffff;
+  background: rgba(74, 92, 106, 0.1);
+  transform: translateY(-3px);
+}
+
+/* ===============================
+   ANIMAÇÕES
+=============================== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===============================
+   RESPONSIVO
+=============================== */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .form-section {
+    padding: 1.5rem;
+  }
+
+  .property-card {
+    padding: 1rem;
+  }
 }

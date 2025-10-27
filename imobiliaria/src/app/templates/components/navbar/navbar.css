@@ -1,11 +1,11 @@
 .navbar {
   width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #ddd;
+  background: #06141B; /* Azul petróleo escuro */
+  border-bottom: 1px solid #253745; /* Azul grafite sutil */
   position: sticky;
   top: 0;
   z-index: 50;
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
 }
 
 .navbar-container {
@@ -19,9 +19,10 @@
 
 .navbar-logo {
   font-size: 1.5rem;
-  font-weight: bold;
-  color: #5D8AA8 ;
+  font-weight: 600;
+  color: #CCD0CF; /* Cinza suave */
   cursor: pointer;
+  letter-spacing: 0.5px;
 }
 
 .navbar-links {
@@ -34,13 +35,14 @@ a {
 }
 
 .navbar-links a {
-  color: #666;
+  color: #9BA8AB; /* Cinza claro */
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.3s ease, transform 0.2s;
 }
 
 .navbar-links a:hover {
-  color: #002d62;
+  color: #CCD0CF; /* Cinza suave */
+  transform: translateY(-2px);
 }
 
 .navbar-actions {
@@ -54,30 +56,36 @@ a {
   gap: 0.5rem;
 }
 
+/* Botão contornado */
 .btn-outline {
   padding: 0.5rem 1rem;
-  border: 1px solid #002d62;
+  border: 1px solid #9BA8AB; /* Cinza claro */
   background: none;
-  color: #002d62;
-  border-radius: 6px;
+  color: #9BA8AB;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-outline:hover {
-  background: #f3f4f6;
+  background: #253745; /* Azul grafite */
+  color: #CCD0CF; /* Cinza suave */
 }
 
+/* Botão principal */
 .btn-primary {
   padding: 0.5rem 1rem;
-  background: #002d62;
-  color: white;
+  background: #4A5C6A; /* Cinza azulado */
+  color: #CCD0CF; /* Cinza suave */
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
-  background: #001a3d;
+  background: #9BA8AB; /* Cinza claro */
+  color: #06141B; /* Azul petróleo escuro */
 }
 
 .navbar-menu {
@@ -85,9 +93,16 @@ a {
   font-size: 1.5rem;
   background: none;
   border: none;
+  color: #9BA8AB; /* Cinza claro */
   cursor: pointer;
+  transition: color 0.2s;
 }
 
+.navbar-menu:hover {
+  color: #CCD0CF; /* Cinza suave */
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
   .navbar-links {
     display: none;

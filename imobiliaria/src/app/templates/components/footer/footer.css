@@ -1,8 +1,8 @@
 .footer {
-  background: #003153 ; 
-  color: #B76E79;
+  background: #06141B; /* Azul petróleo escuro */
+  color: #9BA8AB; /* Cinza claro */
   padding: 4rem 1rem;
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
 }
 
 .footer-container {
@@ -20,10 +20,11 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
+  color: #CCD0CF; /* Cinza suave */
 }
 
 .footer-desc {
-  color: #94a3b8; 
+  color: #9BA8AB; /* Cinza claro */
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -36,21 +37,27 @@
 .footer-socials .social {
   width: 40px;
   height: 40px;
-  background: #3b1e1e; 
+  background: #253745; /* Azul grafite */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #CCD0CF; /* Cinza suave */
   font-weight: bold;
   text-decoration: none;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
   cursor: pointer;
+}
+
+.footer-socials .social:hover {
+  background: #4A5C6A; /* Cinza azulado */
+  color: #06141B; /* Azul petróleo escuro */
 }
 
 .footer-title {
   font-weight: bold;
   margin-bottom: 1.5rem;
+  color: #CCD0CF; /* Cinza suave */
 }
 
 .footer-list {
@@ -64,23 +71,23 @@
 }
 
 .footer-list a {
-  color: #94a3b8;
+  color: #9BA8AB; /* Cinza claro */
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .footer-list a:hover {
-  color: #fff;
+  color: #CCD0CF; /* Cinza suave */
 }
 
 .footer-contact p {
-  color: #94a3b8;
+  color: #9BA8AB; /* Cinza claro */
   margin-bottom: 1rem;
   font-size: 0.95rem;
 }
 
 .footer-bottom {
-  border-top: 1px solid #1e293b;
+  border-top: 1px solid #253745; /* Azul grafite */
   margin-top: 3rem;
   padding-top: 2rem;
   display: flex;
@@ -90,7 +97,7 @@
 }
 
 .footer-bottom p {
-  color: #94a3b8;
+  color: #9BA8AB; /* Cinza claro */
   font-size: 0.85rem;
 }
 
@@ -101,11 +108,12 @@
 }
 
 .footer-links a {
-  color: #94a3b8;
+  color: #9BA8AB; /* Cinza claro */
   font-size: 0.85rem;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #fff;
+  color: #CCD0CF; /* Cinza suave */
 }
