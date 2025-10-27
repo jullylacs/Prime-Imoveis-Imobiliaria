@@ -1,0 +1,32 @@
+<div class="client-interests-page">
+  <div class="card mb-6">
+    <div class="card-header">
+      <h2 class="card-title">Meus Interesses</h2>
+    </div>
+  </div>
+
+  <div *ngIf="imoveisInteressados.length > 0; else semInteresses">
+    <div class="property-grid">
+      <!-- Itera sobre o array 'imoveis' -->
+      <div class="property-card" *ngFor="let item of imoveisInteressados">
+        <img [src]="item.imovel.imagemUrl" alt="..." class="property-image"/>
+
+        <div class="property-info">
+          <h2>{{ item.imovel.titulo }}</h2>
+          <p><strong>Tipo:</strong> {{ item.imovel.tipo }}</p>
+          <p><strong>Cidade:</strong> {{ item.imovel.cidade }}</p>
+          <p><strong>Preço:</strong> R$ {{ item.imovel.preco }}</p>
+        </div>
+
+        <button class="btn-outline" [routerLink]="['/imovel', item.imovel.id]">
+          Ver detalhes
+        </button>
+        <button class="btn-outline" (click)="removerInteresse(item.interesseId)">Remover interesse</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #semInteresses>
+    <p class="no-data">Você ainda não demonstrou interesse em nenhum imóvel.</p>
+  </ng-template>
+</div>

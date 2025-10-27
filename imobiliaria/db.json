@@ -1,0 +1,74 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Carlos Costa",
+      "email": "corretor@prime.com",
+      "senha": "123",
+      "tipo": "corretor"
+    },
+    {
+      "id": "2",
+      "nome": "Ana Capim",
+      "email": "cliente@email.com",
+      "senha": "123",
+      "tipo": "cliente"
+    },
+    {
+      "id": "2812",
+      "nome": "rita",
+      "email": "lovelyrita@gmail.com",
+      "senha": "123",
+      "tipo": "cliente"
+    }
+  ],
+  "imoveis": [
+    {
+      "id": "1",
+      "titulo": "Apartamento com vista para o mar",
+      "corretorId": 1,
+      "tipo": "Apartamento",
+      "cidade": "Santos",
+      "preco": 750000,
+      "descricao": "Lindo apartamento com 3 quartos...",
+      "imagemUrl": "https://i.ibb.co/Wq5RVZB/2b42e8e480fa69803230c01549d34dc4.jpg"
+    },
+    {
+      "id": "0bd7",
+      "titulo": "casa azul com teto laranja",
+      "corretorId": "1",
+      "tipo": "Casa para alugar",
+      "cidade": "Jundiaí",
+      "preco": "2500",
+      "descricao": "casinha com 2 quartos e",
+      "imagemUrl": "https://i.pinimg.com/1200x/e2/28/5e/e2285e5d45b574ea3517e4a18a866141.jpg"
+    },
+    {
+      "id": "1710",
+      "titulo": "kitnet",
+      "corretorId": "1",
+      "tipo": "kitnet",
+      "cidade": "florianopolis",
+      "preco": "1500",
+      "descricao": "kitnet com 1 banheiro e ...",
+      "imagemUrl": "https://i.ibb.co/ymTHyDnB/5f5f493b218932b2ac6f135943f92376.jpg"
+    }
+  ],
+  "interesses": [
+    {
+      "id": "fa77",
+      "clienteId": "2",
+      "imovelId": "1"
+    },
+    {
+      "id": "8a7f",
+      "clienteId": "2",
+      "imovelId": "c65e"
+    },
+    {
+      "id": "8c21",
+      "clienteId": "2",
+      "imovelId": "0bd7"
+    }
+  ]
+}

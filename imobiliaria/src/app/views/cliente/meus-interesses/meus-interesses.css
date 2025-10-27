@@ -1,0 +1,100 @@
+.client-interests-page {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 1rem 1.5rem;
+}
+.card-title { font-weight: bold; font-size: 1.25rem; color: #002d62; }
+.card-subtitle { font-size: 0.875rem; color: #64748b; }
+
+/* GRID DE PROPRIEDADES */
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* CARD DE PROPRIEDADE */
+.property-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 3vh;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* IMAGEM DA PROPRIEDADE */
+.property-img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* TÍTULO DO IMÓVEL */
+.property-card h2 {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #002d62;
+  margin-bottom: 0.5rem;
+}
+
+/* INFORMAÇÕES DO IMÓVEL */
+.property-card p {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0.25rem 0;
+}
+
+/* BOTÃO VER DETALHES */
+.property-card .btn-outline {
+  margin-top: auto;
+  margin: 5px;
+  padding: 0.5rem 1rem;
+  border: 2px solid #2563eb;
+  background: none;
+  color: #2563eb;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  display: inline-block;
+}
+
+.property-card .btn-outline:hover {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+/* TEXTO QUANDO NÃO HÁ INTERESSES */
+.no-data {
+  text-align: center;
+  color: #64748b;
+  font-size: 1rem;
+  margin-top: 2rem;
+}

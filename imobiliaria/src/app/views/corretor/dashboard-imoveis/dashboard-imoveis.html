@@ -1,0 +1,56 @@
+<div class="dashboard-page">
+
+  <section class="hero-section">
+    <div class="container dashboard-header">
+      <h1 class="title">Dashboard do Corretor</h1>
+      <button class="btn btn-primary" (click)="mostrarFormulario = !mostrarFormulario">
+        + Cadastrar Imóvel
+      </button>
+    </div>
+  </section>
+
+  <div class="container">
+  <div *ngIf="mostrarFormulario" class="mostrar-formulario">
+      <h3 *ngIf="!modoEdicao">Cadastrar Novo Imóvel</h3>
+      <h3 *ngIf="modoEdicao">Editar Imóvel</h3>
+
+      <form (ngSubmit)="modoEdicao ? AtualizarImovel(novoImovel.id) : cadastrarImovel()">
+        <input type="text" placeholder="Título" [(ngModel)]="novoImovel.titulo" name="titulo" required />
+        <input type="text" placeholder="Cidade" [(ngModel)]="novoImovel.cidade" name="cidade" required />
+        <input type="text" placeholder="Tipo" [(ngModel)]="novoImovel.tipo" name="tipo" required />
+        <input type="text" placeholder="Preço" [(ngModel)]="novoImovel.preco" name="preco" required />
+        <textarea placeholder="Descrição" [(ngModel)]="novoImovel.descricao" name="descricao"></textarea>
+        <input type="text" placeholder="URL da imagem" [(ngModel)]="novoImovel.imagemUrl" name="imagemUrl" />
+        <div class="form-actions">
+          <button class="btn btn-success mt-4" type="submit">
+            {{ modoEdicao ? 'Atualizar' : 'Cadastrar' }}
+          </button>
+          <button class="btn danger mt-4" type="button" (click)="mostrarFormulario = false; modoEdicao = false">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <section class="featured-section mt-6">
+      <div class="text-center">
+        <h2 class="title">Meus Imóveis</h2>
+      </div>
+
+      <div class="property-grid">
+        <div class="property-card" *ngFor="let imovel of imoveis">
+          <img [src]="imovel.imagemUrl" alt="..." class="property-image"/>
+
+          <h2>{{ imovel.titulo }}</h2>
+          <p><strong>Cidade:</strong> {{ imovel.cidade }}</p>
+          <p><strong>Tipo:</strong> {{ imovel.tipo }}</p>
+          <p><strong>Preço:</strong> R$ {{ imovel.preco }}</p>
+
+          <div class="card-actions">
+            <button class="btn-outline" (click)="editarImovel(imovel)">Editar</button>
+            <button class="btn-outline" (click)="excluirImovel(imovel.id)">Excluir</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>

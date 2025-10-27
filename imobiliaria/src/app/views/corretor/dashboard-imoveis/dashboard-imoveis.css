@@ -1,0 +1,203 @@
+.dashboard-page {
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+/* HERO / HEADER */
+.hero-section {
+  background-color: #f8fafc;
+  padding: 2rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #002d62;
+}
+
+.subtitle {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+/* FORMULÁRIO DE CADASTRO */
+.form-section {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  padding: 2rem 1.5rem;
+  margin: 2rem 0;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section input[type="text"],
+.form-section textarea {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #334155;
+  font-family: inherit;
+  transition: border-color 0.3s;
+  resize: vertical;
+}
+
+.form-section input[type="text"]:focus,
+.form-section textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  background-color: #f0f9ff;
+}
+
+.form-section textarea {
+  min-height: 100px;
+}
+
+/* GRID DE PROPRIEDADES */
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.property-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.property-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.property-card h2 {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #002d62;
+  margin-bottom: 0.5rem;
+}
+
+.property-card p {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0.25rem 0;
+}
+
+/* FORMULÁRIO DE CADASTRO DE IMÓVEL */
+.mostrar-formulario {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  padding: 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mostrar-formulario form {
+  display: flex;
+  flex-direction: column;
+}
+
+.mostrar-formulario input[type="text"],
+.mostrar-formulario textarea {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #334155;
+  font-family: inherit;
+  transition: border-color 0.3s;
+  resize: vertical;
+}
+
+.mostrar-formulario input[type="text"]:focus,
+.mostrar-formulario textarea:focus {
+  outline: none;
+  border-color: #2563eb; 
+  background-color: #f0f9ff;
+}
+
+.mostrar-formulario textarea {
+  min-height: 100px;
+}
+
+/* BOTÕES */
+.btn {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #1e40af;
+}
+
+.btn-success {
+  background-color: #16a34a;
+  color: #fff;
+  margin: 5px;
+}
+
+.btn-success:hover {
+  background-color: #15803d;
+}
+
+.btn-outline {
+  background: none;
+  border: 2px solid #2563eb;
+  color: #2563eb;
+  margin-top: auto;
+  margin: 2px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+}
