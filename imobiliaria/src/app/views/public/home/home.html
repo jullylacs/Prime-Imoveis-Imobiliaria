@@ -1,13 +1,17 @@
-<section id="inicio" class="hero">
-  <div class="hero-overlay"></div>
-
+<section class="hero">
   <div class="container">
     <div class="hero-grid">
 
       <!-- Texto principal -->
       <div class="hero-text">
+
+        <div class="hero-tag">
+          <span class="material-icons" style="font-size:0.9rem">verified</span>
+          Imóveis de Alto Padrão
+        </div>
+
         <h1 class="hero-title">
-          O lar perfeito <br /> espera por <span class="highlight">você</span>
+          O lar perfeito<br />espera por <span class="highlight">você</span>
         </h1>
 
         <p class="hero-subtitle">
@@ -17,30 +21,33 @@
 
         <div class="hero-buttons">
           <a routerLink="/busca">
-            <button class="btn btn-primary">Descobrir Imóveis</button>
+            <button class="btn btn-primary">
+              <span class="material-icons" style="font-size:1.1rem">search</span>
+              Descobrir Imóveis
+            </button>
           </a>
-          <a routerLink="/contato">
-            <button class="btn btn-outline">Fale com um Consultor</button>
+          <a routerLink="/registrar">
+            <button class="btn btn-outline">Criar Conta Grátis</button>
           </a>
         </div>
 
         <div class="hero-stats">
           <div class="stat">
-            <div class="stat-icon blue"><span>🏡</span></div>
             <div class="stat-number">+500</div>
-            <div class="stat-label">Opções Exclusivas</div>
+            <div class="stat-label">Imóveis</div>
           </div>
+          <div class="stat-divider"></div>
           <div class="stat">
-            <div class="stat-icon green"><span>🤝</span></div>
             <div class="stat-number">+2.5k</div>
-            <div class="stat-label">Clientes Satisfeitos</div>
+            <div class="stat-label">Clientes</div>
           </div>
+          <div class="stat-divider"></div>
           <div class="stat">
-            <div class="stat-icon purple"><span>📍</span></div>
             <div class="stat-number">15+</div>
-            <div class="stat-label">Regiões Atendidas</div>
+            <div class="stat-label">Regiões</div>
           </div>
         </div>
+
       </div>
 
       <!-- Imagem hero -->
@@ -50,15 +57,85 @@
           alt="Residência moderna e sofisticada"
           class="main-image"
         />
-        <div class="image-card">
-          <div class="card-icon blue">✨</div>
-          <div class="card-info">
-            <div class="card-title">Imóveis de Alto Padrão</div>
-            <div class="card-subtitle">Viva com conforto e exclusividade</div>
+        <div class="image-badge">
+          <div class="badge-icon">
+            <span class="material-icons" style="font-size:1.2rem">star</span>
+          </div>
+          <div>
+            <div class="badge-title">Alto Padrão</div>
+            <div class="badge-subtitle">Exclusividade garantida</div>
           </div>
         </div>
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- Seção: Como Funciona -->
+<section class="how-section">
+  <div class="how-container">
+
+    <div class="how-header">
+      <p class="how-tag">Simples e Rápido</p>
+      <h2 class="how-title">Como funciona</h2>
+      <p class="how-sub">Do cadastro ao imóvel dos sonhos em poucos passos</p>
+    </div>
+
+    <div class="how-grid">
+
+      <div class="how-step">
+        <div class="step-number">01</div>
+        <div class="step-icon-wrap">
+          <span class="material-icons">person_add</span>
+        </div>
+        <h3 class="step-title">Crie sua conta</h3>
+        <p class="step-desc">Cadastre-se gratuitamente em menos de 1 minuto, sem burocracia.</p>
+      </div>
+
+      <div class="how-connector"></div>
+
+      <div class="how-step">
+        <div class="step-number">02</div>
+        <div class="step-icon-wrap">
+          <span class="material-icons">search</span>
+        </div>
+        <h3 class="step-title">Explore imóveis</h3>
+        <p class="step-desc">Navegue pelo portfólio com filtros por tipo e localização.</p>
+      </div>
+
+      <div class="how-connector"></div>
+
+      <div class="how-step">
+        <div class="step-number">03</div>
+        <div class="step-icon-wrap">
+          <span class="material-icons">favorite</span>
+        </div>
+        <h3 class="step-title">Salve favoritos</h3>
+        <p class="step-desc">Guarde os imóveis que mais gostar para comparar depois.</p>
+      </div>
+
+      <div class="how-connector"></div>
+
+      <div class="how-step">
+        <div class="step-number">04</div>
+        <div class="step-icon-wrap">
+          <span class="material-icons">handshake</span>
+        </div>
+        <h3 class="step-title">Feche negócio</h3>
+        <p class="step-desc">Entre em contato com o corretor e realize o seu sonho.</p>
+      </div>
+
+    </div>
+
+    <div class="how-cta">
+      <a routerLink="/busca">
+        <button class="btn-cta">
+          <span class="material-icons">search</span>
+          Começar agora
+        </button>
+      </a>
+    </div>
+
   </div>
 </section>

@@ -1,0 +1,159 @@
+@if (usuario) {
+<div class="perfil-page">
+
+  <!-- Banner -->
+  <div class="perfil-banner">
+    <div class="container">
+      <div class="banner-inner">
+        <div class="avatar">{{ iniciais }}</div>
+        <div class="banner-info">
+          <span class="role-badge">{{ labelTipo }}</span>
+          <h1 class="banner-name">{{ usuario.nome }}</h1>
+          <p class="banner-email">
+            <span class="material-icons" style="font-size:.95rem;vertical-align:middle">email</span>
+            {{ usuario.email }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="container perfil-content">
+    <div class="perfil-grid">
+
+      <!-- Coluna esquerda: Resumo -->
+      <div class="side-col">
+
+        <div class="info-card">
+          <h3 class="card-heading">
+            <span class="material-icons">info</span>
+            Informações
+          </h3>
+
+          <div class="info-row">
+            <div class="info-icon-wrap">
+              <span class="material-icons">person</span>
+            </div>
+            <div>
+              <p class="info-label">Nome completo</p>
+              <p class="info-val">{{ usuario.nome }}</p>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-icon-wrap">
+              <span class="material-icons">email</span>
+            </div>
+            <div>
+              <p class="info-label">E-mail</p>
+              <p class="info-val">{{ usuario.email }}</p>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-icon-wrap">
+              <span class="material-icons">badge</span>
+            </div>
+            <div>
+              <p class="info-label">Tipo de conta</p>
+              <p class="info-val">{{ labelTipo }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stat card -->
+        <a [routerLink]="linkStats" class="stat-card">
+          <div class="stat-icon-wrap">
+            <span class="material-icons">{{ iconStats }}</span>
+          </div>
+          <div class="stat-info">
+            <p class="stat-num">{{ statsCount }}</p>
+            <p class="stat-label">{{ labelStats }}</p>
+          </div>
+          <span class="material-icons stat-arrow">arrow_forward</span>
+        </a>
+
+      </div>
+
+      <!-- Coluna direita: Editar -->
+      <div class="main-col">
+
+        <div class="edit-card">
+          <h3 class="card-heading">
+            <span class="material-icons">edit</span>
+            Editar Perfil
+          </h3>
+
+          @if (sucesso) {
+            <div class="alert alert-success">
+              <span class="material-icons">check_circle</span>
+              {{ sucesso }}
+            </div>
+          }
+          @if (erro) {
+            <div class="alert alert-error">
+              <span class="material-icons">error_outline</span>
+              {{ erro }}
+            </div>
+          }
+
+          <form (ngSubmit)="salvar()">
+            <div class="form-group">
+              <label for="nome">Nome completo</label>
+              <input
+                id="nome"
+                name="nome"
+                type="text"
+                [(ngModel)]="nomeEditado"
+                placeholder="Seu nome"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label>E-mail</label>
+              <input
+                type="email"
+                [value]="usuario.email"
+                disabled
+                class="input-disabled"
+              />
+              <p class="field-hint">O e-mail não pode ser alterado</p>
+            </div>
+
+            <div class="form-group">
+              <label>Tipo de conta</label>
+              <input
+                type="text"
+                [value]="labelTipo"
+                disabled
+                class="input-disabled"
+              />
+            </div>
+
+            <div class="form-actions">
+              <button
+                type="submit"
+                class="btn-save"
+                [disabled]="salvando || !nomeEditado.trim()"
+              >
+                @if (salvando) {
+                  <span class="material-icons spin">sync</span>
+                  Salvando...
+                } @else {
+                  <span class="material-icons">save</span>
+                  Salvar alterações
+                }
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+}

@@ -1,0 +1,68 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Carlos Costa",
+      "email": "corretor@prime.com",
+      "senha": "123",
+      "tipo": "corretor"
+    },
+    {
+      "id": "2",
+      "nome": "Ana Capim",
+      "email": "cliente@email.com",
+      "senha": "123",
+      "tipo": "cliente"
+    },
+    {
+      "id": "b16b3ab8-e704-4a12-b543-505cb7d5257b",
+      "nome": "Teste Usuario",
+      "email": "teste@email.com",
+      "senha": "123",
+      "tipo": "cliente"
+    }
+  ],
+  "imoveis": [
+    {
+      "id": "1",
+      "titulo": "Apartamento com vista para o mar",
+      "corretorId": "1",
+      "tipo": "Apartamento",
+      "cidade": "Santos",
+      "preco": 750000,
+      "descricao": "Lindo apartamento com 3 quartos e vista privilegiada para o mar.",
+      "imagemUrl": "https://i.ibb.co/Wq5RVZB/2b42e8e480fa69803230c01549d34dc4.jpg"
+    },
+    {
+      "id": "2",
+      "titulo": "Casa azul com teto laranja",
+      "corretorId": "1",
+      "tipo": "Casa para alugar",
+      "cidade": "Jundiaí",
+      "preco": 2500,
+      "descricao": "Casinha com 2 quartos e quintal.",
+      "imagemUrl": "https://i.pinimg.com/1200x/e2/28/5e/e2285e5d45b574ea3517e4a18a866141.jpg"
+    },
+    {
+      "id": "3",
+      "titulo": "Kitnet aconchegante",
+      "corretorId": "1",
+      "tipo": "Kitnet",
+      "cidade": "Florianópolis",
+      "preco": 1500,
+      "descricao": "Kitnet com 1 banheiro e área de serviço.",
+      "imagemUrl": "https://i.ibb.co/ymTHyDnB/5f5f493b218932b2ac6f135943f92376.jpg"
+    },
+    {
+      "id": "7a48fa1d-7458-4679-adf9-37cb6e674491",
+      "titulo": "Apartamento confortável",
+      "corretorId": "1",
+      "tipo": "Apartamento",
+      "cidade": "Limeira SP",
+      "preco": 1500,
+      "descricao": "Apartamento confortável, Condomínio Tal",
+      "imagemUrl": "https://imgs.search.brave.com/bh9WAZotG90Zsdg1WibkmHVmuUJA9WF-SbWt7jav9OM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3RpL2ZvdG9z/LWdyYXRpcy90Mi83/MTQ3NjEyMy1hLWFw/YXJ0YW1lbnRvLWNv/bnN0cnVjYW8tY29t/LWphbmVsYXMtZS12/YXJhbmRhcy1ncmF0/aXMtZm90by5qcGVn"
+    }
+  ],
+  "interesses": []
+}

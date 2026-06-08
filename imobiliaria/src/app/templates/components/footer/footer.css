@@ -1,8 +1,8 @@
 .footer {
-  background: #06141B; /* Azul petróleo escuro */
-  color: #9BA8AB; /* Cinza claro */
-  padding: 4rem 1rem;
-  font-family: "Poppins", Arial, sans-serif;
+  background: var(--dark);
+  color: var(--muted);
+  padding: 4rem 1.5rem 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 .footer-container {
@@ -12,108 +12,123 @@
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--navy);
 }
+
+/* ── MARCA ──────────────────────────────── */
+.footer-brand { max-width: 300px; }
 
 .footer-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: #CCD0CF; /* Cinza suave */
-}
-
-.footer-desc {
-  color: #9BA8AB; /* Cinza claro */
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.footer-socials {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.footer-socials .social {
-  width: 40px;
-  height: 40px;
-  background: #253745; /* Azul grafite */
-  border-radius: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: #CCD0CF; /* Cinza suave */
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  gap: 0.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--light);
+  margin-bottom: 1rem;
 }
 
-.footer-socials .social:hover {
-  background: #4A5C6A; /* Cinza azulado */
-  color: #06141B; /* Azul petróleo escuro */
+.logo-icon { color: var(--gold); }
+.logo-gold  { color: var(--gold); }
+
+.footer-desc {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--blue-gray);
 }
 
+/* ── TÍTULOS ────────────────────────────── */
 .footer-title {
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: #CCD0CF; /* Cinza suave */
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--light);
+  margin: 0 0 1.25rem;
 }
 
+/* ── LISTA ──────────────────────────────── */
 .footer-list {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-.footer-list li {
-  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
 }
 
 .footer-list a {
-  color: #9BA8AB; /* Cinza claro */
-  text-decoration: none;
-  transition: color 0.3s ease;
+  font-size: 0.875rem;
+  color: var(--blue-gray);
+  transition: color 0.2s;
 }
+.footer-list a:hover { color: var(--gold); }
 
-.footer-list a:hover {
-  color: #CCD0CF; /* Cinza suave */
-}
-
-.footer-contact p {
-  color: #9BA8AB; /* Cinza claro */
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-}
-
-.footer-bottom {
-  border-top: 1px solid #253745; /* Azul grafite */
-  margin-top: 3rem;
-  padding-top: 2rem;
+/* ── CONTATO ────────────────────────────── */
+.footer-contact {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  text-align: center;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.contact-icon {
+  font-size: 1rem;
+  color: var(--gold);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.contact-item p {
+  font-size: 0.85rem;
+  color: var(--blue-gray);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── RODAPÉ ─────────────────────────────── */
+.footer-bottom {
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .footer-bottom p {
-  color: #9BA8AB; /* Cinza claro */
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  color: var(--slate);
+  margin: 0;
 }
 
 .footer-links {
   display: flex;
   gap: 1.5rem;
-  justify-content: center;
 }
 
 .footer-links a {
-  color: #9BA8AB; /* Cinza claro */
-  font-size: 0.85rem;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  font-size: 0.8rem;
+  color: var(--slate);
+  transition: color 0.2s;
 }
+.footer-links a:hover { color: var(--muted); }
 
-.footer-links a:hover {
-  color: #CCD0CF; /* Cinza suave */
+/* ── RESPONSIVO ─────────────────────────── */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .footer-brand { max-width: 100%; }
+  .footer-bottom { justify-content: center; text-align: center; }
 }

@@ -6,7 +6,7 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class InteresseService {
-  private apiUrl = 'http://localhost:3012/interesses';
+  private apiUrl = 'http://localhost:3001/interesses';
 
   constructor(private http: HttpClient) {}
 

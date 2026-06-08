@@ -1,23 +1,98 @@
-<section class="hero-section">
-  <section class="featured-section">
-    <div class="container">
-      <div class="text-center mb-16">
-        <h2 class="title">Propriedades em Destaque</h2>
-        <p class="subtitle">
-          Explore nossa seleção exclusiva de imóveis premium
-        </p>
+<!-- Hero -->
+<section class="listing-hero">
+  <div class="container">
+    <p class="hero-tag">
+      <span class="material-icons" style="font-size:.85rem">villa</span>
+      Portfólio Exclusivo
+    </p>
+    <h1 class="hero-title">Propriedades em Destaque</h1>
+    <p class="hero-sub">Curadoria de imóveis selecionados para o seu estilo de vida</p>
+  </div>
+</section>
+
+<section class="listing-section">
+  <div class="container">
+
+    <!-- Barra de filtros (flutua sobre o hero) -->
+    <div class="filter-bar">
+      <div class="search-wrap">
+        <span class="material-icons search-icon">search</span>
+        <input
+          class="search-input"
+          type="text"
+          placeholder="Buscar por título ou cidade..."
+          [(ngModel)]="termoBusca"
+        />
+        @if (termoBusca) {
+          <button class="clear-btn" (click)="termoBusca = ''">
+            <span class="material-icons">close</span>
+          </button>
+        }
       </div>
 
-      <div id="property-grid" class="property-grid">
-        <div class="propety-card" *ngFor="let imovel of imoveis">
-          <img [src]="imovel.imagemUrl" alt="..." class="property-image"/>
-          <h3>{{imovel.titulo}}</h3>
-          <p><strong>Tipo:</strong> {{imovel.tipo}}</p>
-          <p><strong>Cidade:</strong> {{imovel.cidade}}</p>
-          <p><strong>Preço:</strong> {{imovel.preco}}</p>
-          <button class="btn outline" [routerLink]="['/imovel', imovel.id]">Ver detalhes</button>
-        </div>
-      </div>
+      <div class="filter-sep"></div>
+
+      <select class="select-tipo" [(ngModel)]="tipoFiltro">
+        <option value="">Todos os tipos</option>
+        @for (tipo of tipos; track tipo) {
+          <option [value]="tipo">{{ tipo }}</option>
+        }
+      </select>
+
+      @if (termoBusca || tipoFiltro) {
+        <button class="btn-clear-all" (click)="limparFiltros()">
+          <span class="material-icons">filter_alt_off</span>
+          Limpar filtros
+        </button>
+      }
+
+      <span class="result-count">
+        {{ imoveisFiltrados.length }} imóvel(is)
+      </span>
     </div>
-  </section>
+
+    <!-- Loading -->
+    @if (carregando) {
+      <div class="loading-state">
+        <span class="material-icons spin">sync</span>
+        Carregando imóveis...
+      </div>
+    }
+
+    <!-- Grid -->
+    @if (!carregando) {
+      @if (imoveisFiltrados.length > 0) {
+        <div class="property-grid">
+          @for (imovel of imoveisFiltrados; track imovel.id) {
+            <div class="property-card">
+              <div class="card-image-wrap">
+                <img [src]="imovel.imagemUrl" [alt]="imovel.titulo" class="card-image"/>
+                <span class="card-type-badge">{{ imovel.tipo }}</span>
+              </div>
+              <div class="card-body">
+                <p class="card-price">{{ imovel.preco | currency:'BRL':'symbol':'1.0-0' }}</p>
+                <p class="card-location">
+                  <span class="material-icons">location_on</span>
+                  {{ imovel.cidade }}
+                </p>
+                <h3 class="card-title">{{ imovel.titulo }}</h3>
+                <a [routerLink]="['/imovel', imovel.id]" class="card-cta">
+                  Ver detalhes
+                  <span class="material-icons">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          }
+        </div>
+      } @else {
+        <div class="empty-state">
+          <span class="material-icons empty-icon">search_off</span>
+          <p class="empty-title">Nenhum imóvel encontrado</p>
+          <p class="empty-sub">Tente ajustar os filtros de busca</p>
+          <button class="btn-reset" (click)="limparFiltros()">Ver todos os imóveis</button>
+        </div>
+      }
+    }
+
+  </div>
 </section>

@@ -1,42 +1,46 @@
-<div class="register-page">
-  <div class="register-container">
-    
-    <div class="card">
-      <div class="card-header">
-        <h2 class="card-title">Criar sua conta</h2>
+<div class="auth-page">
+  <div class="auth-panel">
+
+    <div class="auth-brand">
+      <span class="material-icons brand-icon">apartment</span>
+      <span class="brand-name">Prime <span>Imóveis</span></span>
+    </div>
+
+    <h2 class="auth-title">Crie sua conta</h2>
+    <p class="auth-subtitle">Acesso gratuito a todos os imóveis</p>
+
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+
+      <div class="form-group">
+        <label for="nome">Nome completo</label>
+        <input id="nome" name="nome" type="text" placeholder="Seu nome" [(ngModel)]="nome" required/>
       </div>
-      <div class="card-content">
-        <form id="register-form" (ngSubmit)="onSubmit()" #form="ngForm">
-          <div class="form-group"> 
-            <label for="name">Nome *</label>
-            <input id="name" name="nome" type="text" placeholder="Seu nome" [(ngModel)]="nome" required/>
-          </div>
 
-          <div class="form-group">
-            <label for="email">E-mail *</label>
-            <input id="email" name="email" placeholder="seu@email.com" [(ngModel)]="email" required/>
-          </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" placeholder="seu@email.com" [(ngModel)]="email" required/>
+      </div>
 
-          <div class="form-group">
-            <label for="senha">Senha *</label>
-            <input id="senha" name="senha" type="password" [(ngModel)]="senha" required/>
-          </div>
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input id="senha" name="senha" type="password" placeholder="Mínimo 6 caracteres" [(ngModel)]="senha" required/>
+      </div>
 
-          <div class="form-group">
-            <label for="confirmPassword">Confirmar senha *</label>
-            <input id="confirmPassword" type="password" placeholder="Digite a senha novamente" required/>
-          </div>
-
-          <div id="error-msg" class="alert hidden"></div>
-
-          <button type="submit" class="btn btn-primary w-full">Criar conta</button>
-        </form>
-        <div class="text-center mt-6">
-          <p class="text-sm">
-            Já tem uma conta? 
-            <a routerLink="/login" class="link-btn">Entre aqui</a>
-          </p>
+      @if (erro) {
+        <div class="alert">
+          <span class="material-icons" style="font-size:1rem">error_outline</span>
+          {{ erro }}
         </div>
-      </div>
+      }
+
+      <button type="submit" class="btn-submit">Criar conta</button>
+
+    </form>
+
+    <p class="auth-footer-text">
+      Já tem uma conta?
+      <a routerLink="/login" class="auth-link">Entre aqui</a>
+    </p>
+
   </div>
 </div>

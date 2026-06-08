@@ -1,63 +1,81 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { Cliente } from '../models/cliente.model';
-import { Corretor } from '../models/corretor.model';
-import { Imovel } from '../models/imovel.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3012/usuarios';
+  private apiUrl = 'http://localhost:3001';
   private readonly CHAVE_USUARIO = 'usuarioLogado';
 
   constructor(private http: HttpClient) {}
 
-  // LOGIN
   login(email: string, senha: string): Observable<boolean> {
     return this.http
-      .get<any[]>(`${this.apiUrl}?email=${email}&senha=${senha}`)
-      .pipe(map((usuarios) => {
-          if (usuarios.length > 0) {
-            localStorage.setItem(this.CHAVE_USUARIO, JSON.stringify(usuarios[0]));
-            return true;
-          }
-          return false;
+      .post<any>(`${this.apiUrl}/auth/login`, { email, senha })
+      .pipe(
+        map((usuario) => {
+          localStorage.setItem(this.CHAVE_USUARIO, JSON.stringify(usuario));
+          return true;
+        }),
+        catchError((err) => {
+          const msg = err.error?.message || 'Erro no servidor';
+          return throwError(() => new Error(msg));
         })
       );
   }
 
-  // REGISTRO (apenas cliente se cadastra, corretor é criado por admin)
-  registrarCliente(cliente: Cliente): Observable<Cliente> {
-    const { id, ...dados } = cliente;
-    return this.http.post<Cliente>(this.apiUrl, { ...dados, tipo: 'cliente' });
+  registrarCliente(cliente: Omit<Cliente, 'id'>): Observable<any> {
+    return this.http
+      .post<any>(`${this.apiUrl}/auth/register`, cliente)
+      .pipe(
+        catchError((err) => {
+          const msg = err.error?.message || 'Erro ao registrar';
+          return throwError(() => new Error(msg));
+        })
+      );
   }
 
-  // LOGOUT
   logout() {
     localStorage.removeItem(this.CHAVE_USUARIO);
   }
 
   isBrowser(): boolean {
-  return typeof window !== 'undefined';
-}
+    return typeof window !== 'undefined';
+  }
 
-  // CHECA LOGIN
   isAuthenticated(): boolean {
     if (!this.isBrowser()) return false;
     return !!localStorage.getItem(this.CHAVE_USUARIO);
   }
 
-  // RETORNA USUÁRIO ATUAL
   usuarioAtual(): any {
-    if (!this.isBrowser()) return false;
-    return JSON.parse(localStorage.getItem(this.CHAVE_USUARIO) || '{}');
+    if (!this.isBrowser()) return null;
+    return JSON.parse(localStorage.getItem(this.CHAVE_USUARIO) || 'null');
   }
 
-  // CHECA PERFIL
   getPerfilUsuario(): 'cliente' | 'corretor' | null {
     const user = this.usuarioAtual();
     return user?.tipo || null;
+  }
+
+  atualizarPerfil(id: string, dados: { nome: string }): Observable<any> {
+    return this.http
+      .put<any>(`${this.apiUrl}/usuarios/${id}`, dados)
+      .pipe(
+        map((usuario) => {
+          const atual = this.usuarioAtual();
+          const atualizado = { ...atual, ...usuario };
+          localStorage.setItem(this.CHAVE_USUARIO, JSON.stringify(atualizado));
+          return atualizado;
+        }),
+        catchError((err) => {
+          const msg = err.error?.message || 'Erro ao atualizar perfil';
+          return throwError(() => new Error(msg));
+        })
+      );
   }
 }

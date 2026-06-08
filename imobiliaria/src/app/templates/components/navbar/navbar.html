@@ -1,38 +1,46 @@
 <nav class="navbar">
   <div class="navbar-container">
-    <a routerLink="/" class="navbar-logo">Imobiliaria JL</a>
 
-    <div class="navbar-buttons">
+    <!-- Logo -->
+    <a routerLink="/" class="navbar-logo">
+      <span class="material-icons logo-icon">apartment</span>
+      <span class="logo-text">Prime <span class="logo-accent">Imóveis</span></span>
+    </a>
 
+    <!-- Links centrais (visíveis apenas quando autenticado) -->
+    @if (auth.isAuthenticated()) {
+      <div class="navbar-links">
+        <a routerLink="/busca" class="nav-link">Imóveis</a>
+        @if (auth.getPerfilUsuario() === 'corretor') {
+          <a routerLink="/dashboard" class="nav-link">Dashboard</a>
+        }
+        @if (auth.getPerfilUsuario() === 'cliente') {
+          <a routerLink="/meus-interesses" class="nav-link">Meus Interesses</a>
+        }
+      </div>
+    }
+
+    <!-- Área do usuário -->
+    <div class="navbar-actions">
       @if (auth.isAuthenticated()) {
-        <span>Bem-vindo, {{ auth.usuarioAtual().nome }}</span>
+        <a routerLink="/perfil" class="user-btn">
+          <div class="user-avatar">{{ iniciais }}</div>
+          <span class="user-name">{{ auth.usuarioAtual().nome.split(' ')[0] }}</span>
+          <span class="material-icons user-chevron">expand_more</span>
+        </a>
         <a routerLink="/login">
-        <button (click)="auth.logout()" class="btn-outline">Sair</button>
+          <button (click)="auth.logout()" class="btn-nav btn-ghost">Sair</button>
         </a>
-      }
-
-      @if (auth.getPerfilUsuario() === 'corretor') {
-        <a routerLink="/dashboard" class="navLink">
-          <button class="btn-primary">Dashboard</button>
+      } @else {
+        <a routerLink="/busca" class="nav-link-subtle">Imóveis</a>
+        <a routerLink="/login">
+          <button class="btn-nav btn-ghost">Entrar</button>
         </a>
-      }
-
-      @if (auth.getPerfilUsuario() === 'cliente') {
-        <a routerLink="/meus-interesses" class="navLink">
-          <button class="btn-primary">Meus Interesses</button>
-        </a>
-      }
-
-      @if (!auth.isAuthenticated()) {
-        <a routerLink="/login" class="navLink">
-          <button class="btn-outline">Entrar</button>
-        </a>
-        <a routerLink="/registrar" class="navLink">
-          <button class="btn-primary">Cadastrar</button>
+        <a routerLink="/registrar">
+          <button class="btn-nav btn-primary">Cadastrar</button>
         </a>
       }
     </div>
+
   </div>
 </nav>
-
-

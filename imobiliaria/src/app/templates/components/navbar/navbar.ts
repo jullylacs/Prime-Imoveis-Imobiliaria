@@ -16,7 +16,9 @@ export class Navbar {
     public auth: AuthService 
   ) {}
 
-  navegarParaRegistro() {
-    this.router.navigate(['/register-cliente']);
+  get iniciais(): string {
+    const nome = this.auth.usuarioAtual()?.nome;
+    if (!nome) return '?';
+    return nome.split(' ').map((n: string) => n[0]).slice(0, 2).join('').toUpperCase();
   }
 }
